@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5231A4E32B52C7A700FC473D /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231A4E22B52C7A700FC473D /* AppIconView.swift */; };
 		523F897A2B4FA1D800DC89C5 /* PlayerStatusAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */; };
 		523F897C2B4FA1D800DC89C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F897B2B4FA1D800DC89C5 /* ContentView.swift */; };
 		523F897E2B4FA1D900DC89C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523F897D2B4FA1D900DC89C5 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5231A4E22B52C7A700FC473D /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
 		523F89762B4FA1D800DC89C5 /* PlayerStatusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerStatusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusAppApp.swift; sourceTree = "<group>"; };
 		523F897B2B4FA1D800DC89C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -126,10 +128,10 @@
 				523F89A32B4FA1F900DC89C5 /* Player.swift */,
 				52797C832B50B7E0005EEABC /* Player+Ability.swift */,
 				52797C852B50B82F005EEABC /* Player+SpecialAbility.swift */,
+				52797C902B523D0E005EEABC /* DeviceTraitStatus.swift */,
 				523F89AB2B4FFCF300DC89C5 /* Views */,
 				523F89AC2B4FFD0F00DC89C5 /* Extensions */,
 				523F897F2B4FA1D900DC89C5 /* Preview Content */,
-				52797C902B523D0E005EEABC /* DeviceTraitStatus.swift */,
 			);
 			path = PlayerStatusApp;
 			sourceTree = "<group>";
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				523F89802B4FA1D900DC89C5 /* Preview Assets.xcassets */,
+				5231A4E22B52C7A700FC473D /* AppIconView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			files = (
 				523F897C2B4FA1D800DC89C5 /* ContentView.swift in Sources */,
 				52797C8B2B50E136005EEABC /* EditPlayerView.swift in Sources */,
+				5231A4E32B52C7A700FC473D /* AppIconView.swift in Sources */,
 				52797C862B50B82F005EEABC /* Player+SpecialAbility.swift in Sources */,
 				52797C892B50E128005EEABC /* PreviewPlayerView.swift in Sources */,
 				52797C822B50B235005EEABC /* SpecialAbilitiesViewCell.swift in Sources */,
@@ -423,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -480,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -501,9 +505,11 @@
 				DEVELOPMENT_TEAM = PBBV5BVMZD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "能力作成";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -531,9 +537,11 @@
 				DEVELOPMENT_TEAM = PBBV5BVMZD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "能力作成";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
