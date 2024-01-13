@@ -28,52 +28,68 @@ struct AbilitiesViewCell: View {
     }
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 5)
-            .aspectRatio(7 / 1, contentMode: .fill)
-            .foregroundColor(Color.white)
-            .overlay {
+            RoundedRectangle(cornerRadius: 5)
+                .aspectRatio(8 / 1, contentMode: .fit)
+                .foregroundColor(Color.white)
+            .overlay(alignment: .leading) {
                 GeometryReader { geometry in
                     let geoWidth = geometry.size.width
                     let geoHeight = geometry.size.height
                     
-                    HStack(spacing: geoWidth * 0.01) {
-                        RoundedRectangle(cornerRadius: 5)
-                            .shadow(radius: 2)
-                            .foregroundColor(Color.white)
-                            .frame(width: geoWidth * 0.7, height: geoHeight * 0.8)
-                            .padding(geoHeight * 0.1)
-                            .overlay {
-                                HStack {
-                                    Text(self.ability.name)
-                                        .foregroundStyle(.black)
-                                        .font(.system(size: min(geoWidth, geoHeight * 0.5)))
-                                        .bold()
-                                        .lineLimit(1)
-                                        .frame(width: geoWidth * 0.6) // 枠内に収める
-                                        .fixedSize(horizontal: false, vertical: true)
-                                        .minimumScaleFactor(0.1)
+                    VStack {
+                        Spacer(minLength: 0)
+                        HStack(spacing: geoWidth * 0.01) {
+                            RoundedRectangle(cornerRadius: 5)
+                                .shadow(radius: 2)
+                                .foregroundColor(Color.white)
+                                .frame(width: geoWidth * 0.7, height: geoHeight * 0.8)
+                                .padding(.leading, geoHeight * 0.1)
+                                .overlay {
+                                    HStack {
+                                        Text(self.ability.name)
+                                            .foregroundStyle(.black)
+                                            .font(.system(size: geoHeight * 0.5))
+                                            .bold()
+                                            .lineLimit(1)
+                                            .frame(width: geoWidth * 0.67) // 枠内に収める
+                                            .fixedSize(horizontal: false, vertical: true)
+                                            .minimumScaleFactor(0.1)
+                                    }
                                 }
-                            }
-                        RankText(rank: self.ability.rank)
-                            .stroke(color: .white)
-                            .font(.system(size: geoHeight * 0.6))
-                            .bold()
-                            .clipped()
-                            .shadow(radius: 2)
-                            .frame(width: geoWidth * 0.1)
-                        Text("\(self.ability.score)")
-                            .foregroundStyle(.black)
-                            .frame(width: geoWidth * 0.15)
-                            .font(.system(size: geoHeight * 0.5))
-                            .bold()
-                    } // HStack
+                            RankText(rank: self.ability.rank)
+                                .stroke(color: .white)
+                                .font(.system(size: geoHeight * 0.7))
+                                .bold()
+                                .clipped()
+                                .shadow(radius: 2)
+                                .frame(width: geoWidth * 0.1)
+                            Text("\(self.ability.score)")
+                                .foregroundStyle(.black)
+                                .frame(width: geoWidth * 0.15, alignment: .trailing)
+                                .font(.system(size: geoHeight * 0.6))
+                                .bold()
+                        } // HStack
+                        Spacer(minLength: 0)
+                    }
                 } // GeometryReader
+
             } // RoundedRectangle.overlay
             .clipped()
             .shadow(radius: 3)
     } // body
 }
 
+fileprivate struct AbilitiesViewCellWrapper: View {
+    var body: some View {
+        VStack {
+            AbilitiesViewCell(ability: Player.Ability(name: "アビリティネーム", score: 0))
+            AbilitiesViewCell(ability: Player.Ability(name: "アビリティネーム", score: 50))
+            AbilitiesViewCell(ability: Player.Ability(name: "アビリティネームが長くても大丈夫か？", score: 100))
+        }
+    }
+}
+
 #Preview {
+//    AbilitiesViewCellWrapper()
     PreviewPlayerViewWrapper()
 }
