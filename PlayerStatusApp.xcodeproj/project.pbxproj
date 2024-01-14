@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5231A4E32B52C7A700FC473D /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231A4E22B52C7A700FC473D /* AppIconView.swift */; };
+		5231A4E52B53681400FC473D /* PlayersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231A4E42B53681400FC473D /* PlayersManager.swift */; };
 		523F897A2B4FA1D800DC89C5 /* PlayerStatusAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */; };
 		523F897C2B4FA1D800DC89C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F897B2B4FA1D800DC89C5 /* ContentView.swift */; };
 		523F897E2B4FA1D900DC89C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523F897D2B4FA1D900DC89C5 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		5231A4E22B52C7A700FC473D /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
+		5231A4E42B53681400FC473D /* PlayersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersManager.swift; sourceTree = "<group>"; };
 		523F89762B4FA1D800DC89C5 /* PlayerStatusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerStatusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusAppApp.swift; sourceTree = "<group>"; };
 		523F897B2B4FA1D800DC89C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5231A4E62B53845400FC473D /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5231A4E42B53681400FC473D /* PlayersManager.swift */,
+				523F89A32B4FA1F900DC89C5 /* Player.swift */,
+				52797C832B50B7E0005EEABC /* Player+Ability.swift */,
+				52797C852B50B82F005EEABC /* Player+SpecialAbility.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		523F896D2B4FA1D800DC89C5 = {
 			isa = PBXGroup;
 			children = (
@@ -125,12 +138,9 @@
 				523F897D2B4FA1D900DC89C5 /* Assets.xcassets */,
 				523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */,
 				523F897B2B4FA1D800DC89C5 /* ContentView.swift */,
-				523F89A32B4FA1F900DC89C5 /* Player.swift */,
-				52797C832B50B7E0005EEABC /* Player+Ability.swift */,
-				52797C852B50B82F005EEABC /* Player+SpecialAbility.swift */,
-				52797C902B523D0E005EEABC /* DeviceTraitStatus.swift */,
+				5231A4E62B53845400FC473D /* Player */,
 				523F89AB2B4FFCF300DC89C5 /* Views */,
-				523F89AC2B4FFD0F00DC89C5 /* Extensions */,
+				523F89AC2B4FFD0F00DC89C5 /* Utils */,
 				523F897F2B4FA1D900DC89C5 /* Preview Content */,
 			);
 			path = PlayerStatusApp;
@@ -172,13 +182,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		523F89AC2B4FFD0F00DC89C5 /* Extensions */ = {
+		523F89AC2B4FFD0F00DC89C5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				523F89A72B4FC89B00DC89C5 /* Color+Assets.swift */,
+				52797C902B523D0E005EEABC /* DeviceTraitStatus.swift */,
 				523F89A92B4FF06500DC89C5 /* View+StrokeBackground.swift */,
 			);
-			path = Extensions;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		52797C872B50E0EE005EEABC /* ViewParts */ = {
@@ -339,6 +350,7 @@
 				52797C802B50B21B005EEABC /* InfoItemCellView.swift in Sources */,
 				523F89A42B4FA1F900DC89C5 /* Player.swift in Sources */,
 				523F897A2B4FA1D800DC89C5 /* PlayerStatusAppApp.swift in Sources */,
+				5231A4E52B53681400FC473D /* PlayersManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

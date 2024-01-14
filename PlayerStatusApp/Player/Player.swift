@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct Player {
+struct Player: Identifiable {
     // 基本情報
+    let id = UUID().uuidString
     private(set) var name: String
     private(set) var infoBottomLeft = Self.InfoItem()
     private(set) var infoTop = Self.InfoItem()

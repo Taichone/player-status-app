@@ -9,9 +9,7 @@ import SwiftUI
 
 struct StrokeBackground: ViewModifier {
     private let id = UUID()
-
     private var strokeSize: CGFloat
-
     private var strokeColor: Color
 
     init(strokeSize: CGFloat, strokeColor: Color) {
