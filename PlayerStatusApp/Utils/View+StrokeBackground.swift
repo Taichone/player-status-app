@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrokeBackground: ViewModifier {
-    private let id = UUID()
+    private let id = UUID().uuidString
     private var strokeSize: CGFloat
     private var strokeColor: Color
 

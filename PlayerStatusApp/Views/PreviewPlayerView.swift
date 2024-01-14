@@ -8,40 +8,35 @@
 import SwiftUI
 
 struct PreviewPlayerView: View {
+    @EnvironmentObject var playersManager: PlayersManager
     @Environment(\.horizontalSizeClass) var hSizeClass
     @Environment(\.verticalSizeClass) var vSizeClass
-    let player: Player
-    
+    let id: String
+
     var body: some View {
         let deviceTraitStatus = DeviceTraitStatus(hSizeClass: self.hSizeClass, vSizeClass: self.vSizeClass)
+        let player = self.playersManager.players.first(where: { $0.id == self.id }) ?? Player(name: "", abilities: [], specialAbilities: [])
+        
         GeometryReader { geometry in
             let geoWidth = geometry.size.width
             
             switch deviceTraitStatus {
             case .wRhR, .wRhC, .wChC:
-                VStack {
-                    Text(self.player.name)
-                        .font(.largeTitle)
-                        .bold()
-                    HStack {
-                        AbilitiesView(abilities: self.player.abilities)
-                            .frame(width: geoWidth / 3)
-                        SpecialAbilitiesView(specialAbilities: self.player.specialAbilities, columnCount: 4)
-                    }
+                HStack {
+                    AbilitiesView(abilities: player.abilities)
+                        .frame(width: geoWidth / 3)
+                    SpecialAbilitiesView(specialAbilities: player.specialAbilities, columnCount: 4)
                 }.padding()
             case .wChR:
                 ScrollView {
-                    Text(self.player.name)
-                        .font(.largeTitle)
-                        .bold()
-                        .padding(.vertical)
-                    AbilitiesView(abilities: self.player.abilities)
+                    AbilitiesView(abilities: player.abilities)
                         .padding(.horizontal)
-                    SpecialAbilitiesView(specialAbilities: self.player.specialAbilities, columnCount: 2)
+                    SpecialAbilitiesView(specialAbilities: player.specialAbilities, columnCount: 2)
                         .padding(.horizontal).padding(.bottom)
                 }
             }
         }
+        .navigationTitle(player.name)
     }
 }
 
@@ -81,12 +76,10 @@ struct PreviewPlayerViewWrapper: View {
         SpecialAbility(name: "Swift", color: .blue)
     ]
     
-    let player = Player(name: "成長目標",
-                        abilities: Self.abilities,
-                        specialAbilities: Self.specialAbilities)
-    
     var body: some View {
-        PreviewPlayerView(player: player)
+        let playersManager = PlayersManager()
+        PreviewPlayerView(id: playersManager.players.first?.id ?? "")
+            .environmentObject(playersManager)
     }
 }
 

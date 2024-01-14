@@ -9,7 +9,7 @@ import Foundation
 
 extension Player {
     struct Ability: Identifiable {
-        var id = UUID()
+        var id = UUID().uuidString
         var name: String
         var rank: Self.Rank
         var score: Int {

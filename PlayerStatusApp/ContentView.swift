@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var playersManager: PlayersManager
+    
     var body: some View {
-        PreviewPlayerViewWrapper()
+        PlayerListView()
+            .environmentObject(self.playersManager)
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(PlayersManager())
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5231A4E32B52C7A700FC473D /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231A4E22B52C7A700FC473D /* AppIconView.swift */; };
 		5231A4E52B53681400FC473D /* PlayersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231A4E42B53681400FC473D /* PlayersManager.swift */; };
+		5231A4E82B53914500FC473D /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231A4E72B53914500FC473D /* PlayerListView.swift */; };
 		523F897A2B4FA1D800DC89C5 /* PlayerStatusAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */; };
 		523F897C2B4FA1D800DC89C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F897B2B4FA1D800DC89C5 /* ContentView.swift */; };
 		523F897E2B4FA1D900DC89C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523F897D2B4FA1D900DC89C5 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		5231A4E22B52C7A700FC473D /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
 		5231A4E42B53681400FC473D /* PlayersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersManager.swift; sourceTree = "<group>"; };
+		5231A4E72B53914500FC473D /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
 		523F89762B4FA1D800DC89C5 /* PlayerStatusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerStatusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusAppApp.swift; sourceTree = "<group>"; };
 		523F897B2B4FA1D800DC89C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		523F89AB2B4FFCF300DC89C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5231A4E72B53914500FC473D /* PlayerListView.swift */,
 				52797C882B50E128005EEABC /* PreviewPlayerView.swift */,
 				52797C8A2B50E136005EEABC /* EditPlayerView.swift */,
 				52797C872B50E0EE005EEABC /* ViewParts */,
@@ -347,6 +350,7 @@
 				523F89A62B4FBBF100DC89C5 /* AbilitiesViewCell.swift in Sources */,
 				52797C8F2B510F5B005EEABC /* SpecialAbilitiesView.swift in Sources */,
 				52797C8D2B510F31005EEABC /* AbilitiesView.swift in Sources */,
+				5231A4E82B53914500FC473D /* PlayerListView.swift in Sources */,
 				52797C802B50B21B005EEABC /* InfoItemCellView.swift in Sources */,
 				523F89A42B4FA1F900DC89C5 /* Player.swift in Sources */,
 				523F897A2B4FA1D800DC89C5 /* PlayerStatusAppApp.swift in Sources */,

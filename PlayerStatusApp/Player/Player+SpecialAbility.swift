@@ -9,7 +9,7 @@ import Foundation
 
 extension Player {
     struct SpecialAbility: Identifiable {
-        var id = UUID()
+        var id = UUID().uuidString
         var name: String {
             didSet {
                 self.updateColorIfNeeded()
