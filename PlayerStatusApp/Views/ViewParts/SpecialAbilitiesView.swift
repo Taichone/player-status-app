@@ -29,6 +29,11 @@ struct SpecialAbilitiesView: View {
             RoundedRectangle(cornerRadius: 5)
                 .foregroundStyle(Color.abilityCellColor)
                 .shadow(radius: 3)
+            if self.specialAbilities.isEmpty {
+                Text("特殊能力なし")
+                    .bold()
+                    .foregroundStyle(Color(.placeholderText))
+            }
             ScrollView {
                 LazyVGrid(columns: self.columns, alignment: .center, spacing: 10, pinnedViews: .sectionFooters ) {
                     ForEach(self.specialAbilities, id: \.id) { specialAbility in

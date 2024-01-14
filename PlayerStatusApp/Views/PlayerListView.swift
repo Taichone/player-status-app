@@ -14,24 +14,24 @@ struct PlayerListView: View {
     
     var body: some View {
         NavigationStack(path: $path) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .foregroundStyle(Color.abilityCellColor)
-                    .shadow(radius: 3)
-                ScrollView {
-                    LazyVGrid(columns: self.columns, alignment: .center, spacing: 10, pinnedViews: .sectionFooters ) {
-                        ForEach(self.playersManager.players, id: \.id) { player in
-                            PlayerListViewCell(id: player.id)
-                                .environmentObject(self.playersManager)
-                                .onTapGesture {
-                                    self.path.append(player.id)
-                                }
-                        }
+            ScrollView {
+                LazyVGrid(columns: self.columns, alignment: .center, spacing: 10, pinnedViews: .sectionFooters ) {
+                    ForEach(self.playersManager.players, id: \.id) { player in
+                        PlayerListViewCell(id: player.id)
+                            .environmentObject(self.playersManager)
+                            .onTapGesture {
+                                self.path.append(player.id)
+                            }
                     }
-                    .padding()
-                } // ScrollView
-                .clipped()
-            } // ZStack
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundStyle(Color.abilityCellColor)
+                        .shadow(radius: 3)
+                )
+                .padding()
+            } // ScrollView
             .navigationTitle("プレイヤーリスト")
             .navigationBarTitleDisplayMode(.automatic)
             .navigationDestination(for: String.self, destination: { id in

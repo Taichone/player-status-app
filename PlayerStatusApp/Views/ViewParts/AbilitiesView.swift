@@ -15,6 +15,11 @@ struct AbilitiesView: View {
             RoundedRectangle(cornerRadius: 5)
                 .foregroundStyle(Color.abilityCellColor)
                 .shadow(radius: 3)
+            if self.abilities.isEmpty {
+                Text("能力なし")
+                    .bold()
+                    .foregroundStyle(Color(.placeholderText))
+            }
             ScrollView {
                 ForEach(self.abilities, id: \.id) { ability in
                     AbilitiesViewCell(ability: ability)
