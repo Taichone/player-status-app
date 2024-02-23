@@ -22,18 +22,21 @@ struct PlayerListView: View {
                 }
                 .onDelete(perform: self.playerRowRemove)
             }
-            .navigationTitle("プレイヤーリスト")
+            .navigationTitle("選手リスト")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing, content: {
                     Button(action: {
-                        let newPlayer = Player()
-                        newPlayer.name = "新規プレイヤー"
-                        self.context.insert(newPlayer)
+                        self.context.insert(Player())
                     }, label: {
                         Image(systemName: "plus")
                     })
                 })
+            }
+            .overlay {
+                if self.players.isEmpty {
+                    Text("右上のボタンから選手を作成しましょう")
+                }
             }
         } // NavigationStack
     }

@@ -125,8 +125,8 @@ struct EditPlayerView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("名前", content: {
-                    TextField("名前", text: self.$name)
+                Section("選手名", content: {
+                    TextField("選手名", text: self.$name)
                 })
                 
                 Section("能力", content: {
@@ -139,7 +139,7 @@ struct EditPlayerView: View {
                     .onDelete(perform: self.abilitiesRowRemove)
                     
                     Button(action: {
-                        self.abilities.append(Player.Ability(name: "新規能力", score: 0))
+                        self.abilities.append(Player.Ability(name: "", score: 0))
                     }, label: { Text("能力を追加") })
                 })
                 
@@ -153,7 +153,7 @@ struct EditPlayerView: View {
                     .onDelete(perform: self.specialAbilitiesRowRemove)
                     
                     Button(action: {
-                        self.specialAbilities.append(Player.SpecialAbility(name: "新規特殊能力", color: .blue))
+                        self.specialAbilities.append(Player.SpecialAbility(name: "", color: .blue))
                     }, label: { Text("特殊能力を追加") })
                 })
             }
