@@ -158,6 +158,25 @@ struct EditPlayerView: View {
             }
             .navigationTitle(self.player.name)
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading, content: {
+                    Button(action: {
+                        self.dismiss()
+                    }, label: {
+                        Text("キャンセル")
+                    })
+                })
+                ToolbarItem(placement: .topBarTrailing, content: {
+                    Button(action: {
+                        self.player.name = self.name
+                        self.player.abilities = self.abilities
+                        self.player.specialAbilities = self.specialAbilities
+                        self.dismiss()
+                    }, label: {
+                        Text("完了")
+                    })
+                })
+            }
         }
         .onAppear(perform: {
             self.name = self.player.name

@@ -18,7 +18,6 @@ struct PlayerListView: View {
         NavigationStack(path: $path) {
             List {
                 ForEach(self.players, id: \.id) { player in
-//                    NavigationLink(destination: PreviewPlayerView(id: player.id), label: { Text(player.name).bold() })
                     NavigationLink(destination: PreviewPlayerView(player: player), label: { Text(player.name).bold() })
                 }
                 .onDelete(perform: self.playerRowRemove)
@@ -29,6 +28,7 @@ struct PlayerListView: View {
                 ToolbarItem(placement: .topBarTrailing, content: {
                     Button(action: {
                         let newPlayer = Player()
+                        newPlayer.name = "新規プレイヤー"
                         self.context.insert(newPlayer)
                     }, label: {
                         Image(systemName: "plus")
