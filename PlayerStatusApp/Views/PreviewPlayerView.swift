@@ -65,12 +65,113 @@ struct PreviewPlayerView: View {
 }
 
 struct EditPlayerView: View {
+    private struct ModalStatus {
+        var target = Target.ability("")
+        var showModal = false
+        
+        enum Target {
+            typealias ID = String
+            case ability(ID)
+            case specialAbility(ID)
+        }
+    }
+    
     let player: Player
+    @State private var name = ""
+    @State private var abilities = [Player.Ability]()
+    @State private var specialAbilities = [Player.SpecialAbility]()
+    @State private var modalStatus = Self.ModalStatus()
+    @Environment(\.dismiss) var dismiss
+    private let columns = [GridItem(.adaptive(minimum: 100))]
     
     var body: some View {
-        VStack {
-            Text(self.player.name)
+        NavigationStack {
+            List {
+                Section("名前", content: {
+                    TextField("名前", text: self.$name)
+                })
+                Section("能力", content: {
+                    ForEach(self.abilities, id: \.id) { ability in
+                        HStack {
+                            Text(ability.name)
+                            Spacer()
+                            Text(String(ability.score))
+                        }
+                        .onTapGesture(perform: {
+                            self.modalStatus.target = .ability(ability.id)
+                            self.modalStatus.showModal = true
+                        })
+                    }
+                    .onDelete(perform: self.abilitiesRowRemove)
+                })
+                .sheet(isPresented: self.$modalStatus.showModal, content: {
+                    switch self.modalStatus.target {
+                    case .ability(let id):
+                        Text(id)
+                    case .specialAbility(let id):
+                        Text(id)
+                    }
+//                    TextField("能力名", text: self.$player.abilities[index].name)
+//                    Spacer()
+//                    Picker("", selection: self.$player.abilities[index].score) {
+//                        ForEach(0...100, id: \.self) {
+//                            Text("\($0)")
+//                        }
+//                    }
+                })
+                Section("能力（ボツ）", content: {
+                    ForEach(self.$abilities.indices, id: \.self) { index in
+                        HStack {
+                            TextField("能力名", text: self.$abilities[index].name)
+                            Spacer()
+                            Picker("", selection: self.$abilities[index].score) {
+                                ForEach(0...100, id: \.self) {
+                                    Text("\($0)")
+                                }
+                            }
+                            .frame(width: 100)
+                        }
+                    }
+                    .onDelete(perform: self.abilitiesRowRemove)
+                })
+                Section("特殊能力（ボツ）", content: {
+                    ForEach(self.$specialAbilities.indices, id: \.self) { index in
+                        HStack {
+                            TextField("能力名", text: self.$specialAbilities[index].name)
+                            Spacer()
+                            Picker("", selection: self.$specialAbilities[index].color) {
+                                ForEach([
+                                    Player.SpecialAbility.Color.blue,
+                                    Player.SpecialAbility.Color.green,
+                                    Player.SpecialAbility.Color.yellow,
+                                    Player.SpecialAbility.Color.red
+                                ], id: \.self) { (color) in
+                                    //rawValueの値をPickerの項目に表示
+                                    Text(color.rawValue).tag(color)
+                                }
+                            }
+                            .frame(width: 100)
+                        }
+                    }
+                    .onDelete(perform: self.specialAbilitiesRowRemove)
+                })
+            }
+            .navigationTitle(self.player.name)
+            .navigationBarTitleDisplayMode(.inline)
         }
+        .onAppear(perform: {
+            self.name = self.player.name
+            self.abilities = self.player.abilities
+            self.specialAbilities = self.player.specialAbilities
+        })
+    }
+    
+    private func abilitiesRowRemove(offsets: IndexSet) {
+        self.abilities.remove(atOffsets: offsets)
+    }
+    
+    private func specialAbilitiesRowRemove(offsets: IndexSet) {
+        self.specialAbilities.remove(atOffsets: offsets)
     }
 }
 
