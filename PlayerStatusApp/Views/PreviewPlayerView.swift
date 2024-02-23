@@ -47,18 +47,56 @@ struct PreviewPlayerView: View {
                         Text("編集")
                     })
                 })
-                ToolbarItem(placement: .topBarTrailing, content: {
-                    Button(action: {
-                        self.showEditPlayerView = true
-                    }, label: {
-                        Image(systemName: "trash")
-                    })
-                })
             }
             .fullScreenCover(isPresented: self.$showEditPlayerView, onDismiss: {
                 print("dismis EditPlayerView")
             }, content: {
                 EditPlayerView(player: self.player)
+            })
+        }
+    }
+}
+
+struct EditSpecialAbilityView: View {
+    @Binding var specialAbility: Player.SpecialAbility
+    
+    var body: some View {
+        List {
+            Section("特殊能力名", content: {
+                TextField("特殊能力名", text: self.$specialAbility.name)
+            })
+            Section("カラー", content: {
+                Picker("", selection: self.$specialAbility.color) {
+                    ForEach([
+                        Player.SpecialAbility.Color.blue,
+                        Player.SpecialAbility.Color.green,
+                        Player.SpecialAbility.Color.yellow,
+                        Player.SpecialAbility.Color.red
+                    ], id: \.self) { (color) in
+                        //rawValueの値をPickerの項目に表示
+                        Text(color.rawValue).tag(color)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+                
+            })
+        }
+    }
+}
+
+struct EditAbilityView: View {
+    @Binding var ability: Player.Ability
+    
+    var body: some View {
+        List {
+            Section("能力名", content: {
+                TextField("能力名", text: self.$ability.name)
+            })
+            Section("スコア", content: {
+                Picker("", selection: self.$ability.score) {
+                    ForEach(0...100, id: \.self) {
+                        Text("\($0)")
+                    }
+                }.pickerStyle(WheelPickerStyle())
             })
         }
     }
@@ -90,81 +128,40 @@ struct EditPlayerView: View {
                 Section("名前", content: {
                     TextField("名前", text: self.$name)
                 })
+                
                 Section("能力", content: {
-                    ForEach(self.abilities, id: \.id) { ability in
-                        HStack {
-                            Text(ability.name)
-                            Spacer()
-                            Text(String(ability.score))
-                        }
-                        .onTapGesture(perform: {
-                            self.modalStatus.target = .ability(ability.id)
-                            self.modalStatus.showModal = true
-                        })
-                    }
-                    .onDelete(perform: self.abilitiesRowRemove)
-                })
-                .sheet(isPresented: self.$modalStatus.showModal, content: {
-                    switch self.modalStatus.target {
-                    case .ability(let id):
-                        Text(id)
-                    case .specialAbility(let id):
-                        Text(id)
-                    }
-//                    TextField("能力名", text: self.$player.abilities[index].name)
-//                    Spacer()
-//                    Picker("", selection: self.$player.abilities[index].score) {
-//                        ForEach(0...100, id: \.self) {
-//                            Text("\($0)")
-//                        }
-//                    }
-                })
-                Section("能力（ボツ）", content: {
                     ForEach(self.$abilities.indices, id: \.self) { index in
-                        HStack {
-                            TextField("能力名", text: self.$abilities[index].name)
-                            Spacer()
-                            Picker("", selection: self.$abilities[index].score) {
-                                ForEach(0...100, id: \.self) {
-                                    Text("\($0)")
-                                }
-                            }
-                            .frame(width: 100)
-                        }
+                        NavigationLink(
+                            destination: EditAbilityView(ability: self.$abilities[index]),
+                            label: { Text(self.abilities[index].name) }
+                        )
                     }
                     .onDelete(perform: self.abilitiesRowRemove)
+                    
+                    Button(action: {
+                        self.abilities.append(Player.Ability(name: "新規能力", score: 0))
+                    }, label: { Text("能力を追加") })
                 })
-                Section("特殊能力（ボツ）", content: {
+                
+                Section("特殊能力", content: {
                     ForEach(self.$specialAbilities.indices, id: \.self) { index in
-                        HStack {
-                            TextField("能力名", text: self.$specialAbilities[index].name)
-                            Spacer()
-                            Picker("", selection: self.$specialAbilities[index].color) {
-                                ForEach([
-                                    Player.SpecialAbility.Color.blue,
-                                    Player.SpecialAbility.Color.green,
-                                    Player.SpecialAbility.Color.yellow,
-                                    Player.SpecialAbility.Color.red
-                                ], id: \.self) { (color) in
-                                    //rawValueの値をPickerの項目に表示
-                                    Text(color.rawValue).tag(color)
-                                }
-                            }
-                            .frame(width: 100)
-                        }
+                        NavigationLink(
+                            destination: EditSpecialAbilityView(specialAbility: self.$specialAbilities[index]),
+                            label: { Text(self.specialAbilities[index].name) }
+                        )
                     }
                     .onDelete(perform: self.specialAbilitiesRowRemove)
+                    
+                    Button(action: {
+                        self.specialAbilities.append(Player.SpecialAbility(name: "新規特殊能力", color: .blue))
+                    }, label: { Text("特殊能力を追加") })
                 })
             }
             .navigationTitle(self.player.name)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading, content: {
-                    Button(action: {
-                        self.dismiss()
-                    }, label: {
-                        Text("キャンセル")
-                    })
+                    Button(action: { self.dismiss() }, label: { Text("キャンセル") })
                 })
                 ToolbarItem(placement: .topBarTrailing, content: {
                     Button(action: {
@@ -172,9 +169,7 @@ struct EditPlayerView: View {
                         self.player.abilities = self.abilities
                         self.player.specialAbilities = self.specialAbilities
                         self.dismiss()
-                    }, label: {
-                        Text("完了")
-                    })
+                    }, label: { Text("完了") })
                 })
             }
         }
