@@ -78,18 +78,3 @@ struct AbilitiesViewCell: View {
             .shadow(radius: 3)
     } // body
 }
-
-fileprivate struct AbilitiesViewCellWrapper: View {
-    var body: some View {
-        VStack {
-            AbilitiesViewCell(ability: Player.Ability(name: "アビリティネーム", score: 0))
-            AbilitiesViewCell(ability: Player.Ability(name: "アビリティネーム", score: 50))
-            AbilitiesViewCell(ability: Player.Ability(name: "アビリティネームが長くても大丈夫か？", score: 100))
-        }
-    }
-}
-
-#Preview {
-//    AbilitiesViewCellWrapper()
-    PreviewPlayerViewWrapper()
-}

@@ -8,14 +8,18 @@
 import Foundation
 
 extension Player {
-    struct SpecialAbility: Identifiable {
+    struct SpecialAbility: Identifiable, Codable {
         var id = UUID().uuidString
         var name: String {
             didSet {
                 self.updateColorIfNeeded()
             }
         }
-        var color: Self.Color
+        var color: Self.Color {
+            didSet {
+                self.updateColorIfNeeded()
+            }
+        }
         
         init(name: String, color: Color) {
             self.name = name
@@ -32,7 +36,7 @@ extension Player {
             }
         }
         
-        enum Color {
+        enum Color: String, CaseIterable, Codable {
             case blue
             case green
             case yellow

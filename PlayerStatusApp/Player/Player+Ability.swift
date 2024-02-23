@@ -8,10 +8,10 @@
 import Foundation
 
 extension Player {
-    struct Ability: Identifiable {
+    struct Ability: Codable, Identifiable {
         var id = UUID().uuidString
         var name: String
-        var rank: Self.Rank
+        private(set) var rank: Self.Rank
         var score: Int {
             didSet {
                 self.updateRank()
@@ -46,9 +46,8 @@ extension Player {
             }
         }
         
-        enum Rank {
+        enum Rank: Codable {
             case s, a, b, c, d, e, f, g
         }
     }
-
 }

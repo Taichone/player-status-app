@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5231A4E32B52C7A700FC473D /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231A4E22B52C7A700FC473D /* AppIconView.swift */; };
-		5231A4E52B53681400FC473D /* PlayersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231A4E42B53681400FC473D /* PlayersManager.swift */; };
 		5231A4E82B53914500FC473D /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231A4E72B53914500FC473D /* PlayerListView.swift */; };
-		523F897A2B4FA1D800DC89C5 /* PlayerStatusAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */; };
-		523F897C2B4FA1D800DC89C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F897B2B4FA1D800DC89C5 /* ContentView.swift */; };
+		523F897A2B4FA1D800DC89C5 /* PlayerStatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89792B4FA1D800DC89C5 /* PlayerStatusApp.swift */; };
 		523F897E2B4FA1D900DC89C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523F897D2B4FA1D900DC89C5 /* Assets.xcassets */; };
 		523F89812B4FA1D900DC89C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523F89802B4FA1D900DC89C5 /* Preview Assets.xcassets */; };
 		523F898B2B4FA1D900DC89C5 /* PlayerStatusAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F898A2B4FA1D900DC89C5 /* PlayerStatusAppTests.swift */; };
@@ -21,12 +19,10 @@
 		523F89A62B4FBBF100DC89C5 /* AbilitiesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89A52B4FBBF100DC89C5 /* AbilitiesViewCell.swift */; };
 		523F89A82B4FC89B00DC89C5 /* Color+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89A72B4FC89B00DC89C5 /* Color+Assets.swift */; };
 		523F89AA2B4FF06500DC89C5 /* View+StrokeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89A92B4FF06500DC89C5 /* View+StrokeBackground.swift */; };
-		52797C802B50B21B005EEABC /* InfoItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C7F2B50B21B005EEABC /* InfoItemCellView.swift */; };
 		52797C822B50B235005EEABC /* SpecialAbilitiesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C812B50B235005EEABC /* SpecialAbilitiesViewCell.swift */; };
 		52797C842B50B7E0005EEABC /* Player+Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C832B50B7E0005EEABC /* Player+Ability.swift */; };
 		52797C862B50B82F005EEABC /* Player+SpecialAbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C852B50B82F005EEABC /* Player+SpecialAbility.swift */; };
 		52797C892B50E128005EEABC /* PreviewPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C882B50E128005EEABC /* PreviewPlayerView.swift */; };
-		52797C8B2B50E136005EEABC /* EditPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C8A2B50E136005EEABC /* EditPlayerView.swift */; };
 		52797C8D2B510F31005EEABC /* AbilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C8C2B510F31005EEABC /* AbilitiesView.swift */; };
 		52797C8F2B510F5B005EEABC /* SpecialAbilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C8E2B510F5B005EEABC /* SpecialAbilitiesView.swift */; };
 		52797C912B523D0E005EEABC /* DeviceTraitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C902B523D0E005EEABC /* DeviceTraitStatus.swift */; };
@@ -51,11 +47,9 @@
 
 /* Begin PBXFileReference section */
 		5231A4E22B52C7A700FC473D /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
-		5231A4E42B53681400FC473D /* PlayersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersManager.swift; sourceTree = "<group>"; };
 		5231A4E72B53914500FC473D /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
 		523F89762B4FA1D800DC89C5 /* PlayerStatusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerStatusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusAppApp.swift; sourceTree = "<group>"; };
-		523F897B2B4FA1D800DC89C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		523F89792B4FA1D800DC89C5 /* PlayerStatusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusApp.swift; sourceTree = "<group>"; };
 		523F897D2B4FA1D900DC89C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		523F89802B4FA1D900DC89C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		523F89862B4FA1D900DC89C5 /* PlayerStatusAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayerStatusAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,12 +61,10 @@
 		523F89A52B4FBBF100DC89C5 /* AbilitiesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitiesViewCell.swift; sourceTree = "<group>"; };
 		523F89A72B4FC89B00DC89C5 /* Color+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Assets.swift"; sourceTree = "<group>"; };
 		523F89A92B4FF06500DC89C5 /* View+StrokeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+StrokeBackground.swift"; sourceTree = "<group>"; };
-		52797C7F2B50B21B005EEABC /* InfoItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItemCellView.swift; sourceTree = "<group>"; };
 		52797C812B50B235005EEABC /* SpecialAbilitiesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialAbilitiesViewCell.swift; sourceTree = "<group>"; };
 		52797C832B50B7E0005EEABC /* Player+Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+Ability.swift"; sourceTree = "<group>"; };
 		52797C852B50B82F005EEABC /* Player+SpecialAbility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+SpecialAbility.swift"; sourceTree = "<group>"; };
 		52797C882B50E128005EEABC /* PreviewPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlayerView.swift; sourceTree = "<group>"; };
-		52797C8A2B50E136005EEABC /* EditPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerView.swift; sourceTree = "<group>"; };
 		52797C8C2B510F31005EEABC /* AbilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitiesView.swift; sourceTree = "<group>"; };
 		52797C8E2B510F5B005EEABC /* SpecialAbilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialAbilitiesView.swift; sourceTree = "<group>"; };
 		52797C902B523D0E005EEABC /* DeviceTraitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTraitStatus.swift; sourceTree = "<group>"; };
@@ -106,7 +98,6 @@
 		5231A4E62B53845400FC473D /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				5231A4E42B53681400FC473D /* PlayersManager.swift */,
 				523F89A32B4FA1F900DC89C5 /* Player.swift */,
 				52797C832B50B7E0005EEABC /* Player+Ability.swift */,
 				52797C852B50B82F005EEABC /* Player+SpecialAbility.swift */,
@@ -138,8 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				523F897D2B4FA1D900DC89C5 /* Assets.xcassets */,
-				523F89792B4FA1D800DC89C5 /* PlayerStatusAppApp.swift */,
-				523F897B2B4FA1D800DC89C5 /* ContentView.swift */,
+				523F89792B4FA1D800DC89C5 /* PlayerStatusApp.swift */,
 				5231A4E62B53845400FC473D /* Player */,
 				523F89AB2B4FFCF300DC89C5 /* Views */,
 				523F89AC2B4FFD0F00DC89C5 /* Utils */,
@@ -179,7 +169,6 @@
 			children = (
 				5231A4E72B53914500FC473D /* PlayerListView.swift */,
 				52797C882B50E128005EEABC /* PreviewPlayerView.swift */,
-				52797C8A2B50E136005EEABC /* EditPlayerView.swift */,
 				52797C872B50E0EE005EEABC /* ViewParts */,
 			);
 			path = Views;
@@ -198,7 +187,6 @@
 		52797C872B50E0EE005EEABC /* ViewParts */ = {
 			isa = PBXGroup;
 			children = (
-				52797C7F2B50B21B005EEABC /* InfoItemCellView.swift */,
 				52797C8C2B510F31005EEABC /* AbilitiesView.swift */,
 				523F89A52B4FBBF100DC89C5 /* AbilitiesViewCell.swift */,
 				52797C8E2B510F5B005EEABC /* SpecialAbilitiesView.swift */,
@@ -337,8 +325,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				523F897C2B4FA1D800DC89C5 /* ContentView.swift in Sources */,
-				52797C8B2B50E136005EEABC /* EditPlayerView.swift in Sources */,
 				5231A4E32B52C7A700FC473D /* AppIconView.swift in Sources */,
 				52797C862B50B82F005EEABC /* Player+SpecialAbility.swift in Sources */,
 				52797C892B50E128005EEABC /* PreviewPlayerView.swift in Sources */,
@@ -351,10 +337,8 @@
 				52797C8F2B510F5B005EEABC /* SpecialAbilitiesView.swift in Sources */,
 				52797C8D2B510F31005EEABC /* AbilitiesView.swift in Sources */,
 				5231A4E82B53914500FC473D /* PlayerListView.swift in Sources */,
-				52797C802B50B21B005EEABC /* InfoItemCellView.swift in Sources */,
 				523F89A42B4FA1F900DC89C5 /* Player.swift in Sources */,
-				523F897A2B4FA1D800DC89C5 /* PlayerStatusAppApp.swift in Sources */,
-				5231A4E52B53681400FC473D /* PlayersManager.swift in Sources */,
+				523F897A2B4FA1D800DC89C5 /* PlayerStatusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +512,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,7 +544,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -48,7 +48,3 @@ struct SpecialAbilitiesViewCell: View {
             }
     }
 }
-
-#Preview {
-    PreviewPlayerViewWrapper()
-}

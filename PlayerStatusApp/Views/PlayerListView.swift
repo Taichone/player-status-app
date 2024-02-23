@@ -6,80 +6,43 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct PlayerListView: View {
-    @EnvironmentObject var playersManager: PlayersManager
-    private let columns = [GridItem(.adaptive(minimum: 100, maximum: 300))]
+    @Environment(\.modelContext) private var context
+    @Query var players: [Player]
+    private let columns = [GridItem(.adaptive(minimum: 80, maximum: 200))]
     @State private var path = NavigationPath()
     
     var body: some View {
         NavigationStack(path: $path) {
-            ScrollView {
-                LazyVGrid(columns: self.columns, alignment: .center, spacing: 10, pinnedViews: .sectionFooters ) {
-                    ForEach(self.playersManager.players, id: \.id) { player in
-                        PlayerListViewCell(id: player.id)
-                            .environmentObject(self.playersManager)
-                            .onTapGesture {
-                                self.path.append(player.id)
-                            }
-                    }
+            List {
+                ForEach(self.players, id: \.id) { player in
+//                    NavigationLink(destination: PreviewPlayerView(id: player.id), label: { Text(player.name).bold() })
+                    NavigationLink(destination: PreviewPlayerView(player: player), label: { Text(player.name).bold() })
                 }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 5)
-                        .foregroundStyle(Color.abilityCellColor)
-                        .shadow(radius: 3)
-                )
-                .padding()
-            } // ScrollView
+                .onDelete(perform: self.playerRowRemove)
+            }
             .navigationTitle("プレイヤーリスト")
-            .navigationBarTitleDisplayMode(.automatic)
-            .navigationDestination(for: String.self, destination: { id in
-                PreviewPlayerView(id: id)
-            })
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing, content: {
+                    Button(action: {
+                        let newPlayer = Player()
+                        self.context.insert(newPlayer)
+                    }, label: {
+                        Image(systemName: "plus")
+                    })
+                })
+            }
         } // NavigationStack
     }
-}
-
-struct PlayerListViewCell: View {
-    @EnvironmentObject var playersManager: PlayersManager
-    let id: String
     
-    var body: some View {
-        let playerName = self.playersManager.players.first(where: { $0.id == self.id })?.name ?? ""
-        RoundedRectangle(cornerRadius: 5)
-            .aspectRatio(3 / 1, contentMode: .fit)
-            .foregroundColor(Color.white)
-            .shadow(radius: 3)
-            .clipped()
-            .shadow(radius: 3)
-            .overlay {
-                GeometryReader { geometry in
-                    let geoWidth = geometry.size.width
-                    let geoHeight = geometry.size.height
-                    
-                    VStack {
-                        Spacer(minLength: 0)
-                        HStack {
-                            Spacer(minLength: 0)
-                            Text(playerName)
-                            .foregroundStyle(.black)
-                            .font(.system(size: geoHeight * 0.5))
-                            .bold()
-                            .lineLimit(1)
-                            .frame(width: geoWidth * 0.9) // 枠内に収める
-                            .fixedSize(horizontal: false, vertical: true)
-                            .minimumScaleFactor(0.1)
-                            Spacer(minLength: 0)
-                        } // HStack
-                        Spacer(minLength: 0)
-                    }
-                } // GeometryReader
-            } // PlayerListViewCell.overlay
+    private func playerRowRemove(offsets: IndexSet) {
+        for index in offsets {
+            let removingPlayer = self.players[index]
+            self.context.delete(removingPlayer)
+        }
+        try? self.context.save()
     }
-}
-
-#Preview {
-    PlayerListView()
-        .environmentObject(PlayersManager())
 }
