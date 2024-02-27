@@ -19,6 +19,7 @@
 		523F89A62B4FBBF100DC89C5 /* AbilitiesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89A52B4FBBF100DC89C5 /* AbilitiesViewCell.swift */; };
 		523F89A82B4FC89B00DC89C5 /* Color+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89A72B4FC89B00DC89C5 /* Color+Assets.swift */; };
 		523F89AA2B4FF06500DC89C5 /* View+StrokeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89A92B4FF06500DC89C5 /* View+StrokeBackground.swift */; };
+		52728EFB2B89DBFF0071670F /* EditPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52728EFA2B89DBFF0071670F /* EditPlayerView.swift */; };
 		52797C822B50B235005EEABC /* SpecialAbilitiesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C812B50B235005EEABC /* SpecialAbilitiesViewCell.swift */; };
 		52797C842B50B7E0005EEABC /* Player+Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C832B50B7E0005EEABC /* Player+Ability.swift */; };
 		52797C862B50B82F005EEABC /* Player+SpecialAbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52797C852B50B82F005EEABC /* Player+SpecialAbility.swift */; };
@@ -61,6 +62,7 @@
 		523F89A52B4FBBF100DC89C5 /* AbilitiesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitiesViewCell.swift; sourceTree = "<group>"; };
 		523F89A72B4FC89B00DC89C5 /* Color+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Assets.swift"; sourceTree = "<group>"; };
 		523F89A92B4FF06500DC89C5 /* View+StrokeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+StrokeBackground.swift"; sourceTree = "<group>"; };
+		52728EFA2B89DBFF0071670F /* EditPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerView.swift; sourceTree = "<group>"; };
 		52797C812B50B235005EEABC /* SpecialAbilitiesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialAbilitiesViewCell.swift; sourceTree = "<group>"; };
 		52797C832B50B7E0005EEABC /* Player+Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+Ability.swift"; sourceTree = "<group>"; };
 		52797C852B50B82F005EEABC /* Player+SpecialAbility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+SpecialAbility.swift"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				5231A4E72B53914500FC473D /* PlayerListView.swift */,
 				52797C882B50E128005EEABC /* PreviewPlayerView.swift */,
 				52797C872B50E0EE005EEABC /* ViewParts */,
+				52728EFA2B89DBFF0071670F /* EditPlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				523F89A82B4FC89B00DC89C5 /* Color+Assets.swift in Sources */,
 				52797C912B523D0E005EEABC /* DeviceTraitStatus.swift in Sources */,
 				52797C842B50B7E0005EEABC /* Player+Ability.swift in Sources */,
+				52728EFB2B89DBFF0071670F /* EditPlayerView.swift in Sources */,
 				523F89AA2B4FF06500DC89C5 /* View+StrokeBackground.swift in Sources */,
 				523F89A62B4FBBF100DC89C5 /* AbilitiesViewCell.swift in Sources */,
 				52797C8F2B510F5B005EEABC /* SpecialAbilitiesView.swift in Sources */,
