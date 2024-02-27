@@ -41,6 +41,7 @@ struct EditPlayerView: View {
                             label: { Text(self.abilities[index].name) }
                         )
                     }
+                    .onMove(perform: self.abilitiesRowMove)
                     .onDelete(perform: self.abilitiesRowRemove)
                     
                     Button(action: {
@@ -55,6 +56,7 @@ struct EditPlayerView: View {
                             label: { Text(self.specialAbilities[index].name) }
                         )
                     }
+                    .onMove(perform: self.specialAbilitiesRowMove)
                     .onDelete(perform: self.specialAbilitiesRowRemove)
                     
                     Button(action: {
@@ -85,8 +87,16 @@ struct EditPlayerView: View {
         })
     }
     
+    private func abilitiesRowMove(from source: IndexSet, to destination: Int) {
+        self.abilities.move(fromOffsets: source, toOffset: destination)
+    }
+    
     private func abilitiesRowRemove(offsets: IndexSet) {
         self.abilities.remove(atOffsets: offsets)
+    }
+    
+    private func specialAbilitiesRowMove(from source: IndexSet, to destination: Int) {
+        self.specialAbilities.move(fromOffsets: source, toOffset: destination)
     }
     
     private func specialAbilitiesRowRemove(offsets: IndexSet) {
