@@ -9,10 +9,10 @@ import SwiftUI
 import DataLayer
 
 struct AbilitiesViewCell: View {
-    let ability: Player.Ability
+    let ability: Ability
     
     private struct RankText: View{
-        let rank: Player.Ability.Rank
+        let rank: Ability.Rank
         
         var body: some View {
             switch self.rank {

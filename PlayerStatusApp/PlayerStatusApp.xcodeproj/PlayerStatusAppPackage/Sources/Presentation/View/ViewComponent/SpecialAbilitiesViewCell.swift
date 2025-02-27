@@ -9,11 +9,11 @@ import SwiftUI
 import DataLayer
 
 struct SpecialAbilitiesViewCell: View {
-    let specialAbility: Player.SpecialAbility
+    let specialAbility: SpecialAbility
     let color: Color
     let textColor: Color
     
-    init(specialAbility: Player.SpecialAbility) {
+    init(specialAbility: SpecialAbility) {
         self.specialAbility = specialAbility
         switch self.specialAbility.color {
         case .blue:

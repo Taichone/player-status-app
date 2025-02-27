@@ -9,11 +9,11 @@ import SwiftUI
 import DataLayer
 
 struct SpecialAbilitiesView: View {
-    let specialAbilities: [Player.SpecialAbility]
+    let specialAbilities: [SpecialAbility]
     let columnCount: Int
     private let columns: [GridItem]
     
-    init(specialAbilities: [Player.SpecialAbility], columnCount: Int) {
+    init(specialAbilities: [SpecialAbility], columnCount: Int) {
         self.specialAbilities = specialAbilities
         self.columnCount = columnCount
         self.columns = Array(repeating:
@@ -49,15 +49,13 @@ struct SpecialAbilitiesView: View {
 }
 
 fileprivate struct SpecialAbilitiesViewWrapper: View {
-    typealias SAbility = Player.SpecialAbility
-    
-    private static let specialAbilities: [SAbility] = [
-        SAbility(name: "上昇志向", color: .blue),
-        SAbility(name: "クリエイティブ", color: .green),
-        SAbility(name: "環境耐性", color: .yellow),
-        SAbility(name: "上昇志向", color: .blue),
-        SAbility(name: "環境耐性", color: .yellow),
-        SAbility(name: "クリエイティブ", color: .green),
+    private static let specialAbilities: [SpecialAbility] = [
+        .init(name: "上昇志向", color: .blue),
+        .init(name: "クリエイティブ", color: .green),
+        .init(name: "環境耐性", color: .yellow),
+        .init(name: "上昇志向", color: .blue),
+        .init(name: "環境耐性", color: .yellow),
+        .init(name: "クリエイティブ", color: .green),
     ]
     
     var body: some View {

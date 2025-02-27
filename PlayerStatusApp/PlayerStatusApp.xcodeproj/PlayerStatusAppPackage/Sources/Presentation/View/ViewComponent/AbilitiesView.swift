@@ -9,7 +9,7 @@ import SwiftUI
 import DataLayer
 
 struct AbilitiesView: View {
-    let abilities: [Player.Ability]
+    let abilities: [Ability]
     
     var body: some View {
         ZStack {
@@ -32,13 +32,11 @@ struct AbilitiesView: View {
     }
 }
 
-fileprivate struct AbilitiesViewWrapper: View {
-    typealias Ability = Player.Ability
-    
+fileprivate struct AbilitiesViewWrapper: View {    
     private static let abilities: [Ability] = [
-        Ability(name: "ミート", score: 80),
-        Ability(name: "パワー", score: 69),
-        Ability(name: "走力", score: 72),
+        .init(name: "ミート", score: 80),
+        .init(name: "パワー", score: 69),
+        .init(name: "走力", score: 72),
     ]
     
     var body: some View {

@@ -22,8 +22,8 @@ struct EditPlayerView: View {
     
     let player: Player
     @State private var name = ""
-    @State private var abilities = [Player.Ability]()
-    @State private var specialAbilities = [Player.SpecialAbility]()
+    @State private var abilities = [Ability]()
+    @State private var specialAbilities = [SpecialAbility]()
     @State private var modalStatus = Self.ModalStatus()
     @Environment(\.dismiss) var dismiss
     private let columns = [GridItem(.adaptive(minimum: 100))]
@@ -46,7 +46,7 @@ struct EditPlayerView: View {
                     .onDelete(perform: self.abilitiesRowRemove)
                     
                     Button(action: {
-                        self.abilities.append(Player.Ability(name: "", score: 0))
+                        self.abilities.append(Ability(name: "", score: 0))
                     }, label: { Text("能力を追加") })
                 })
                 
@@ -61,7 +61,7 @@ struct EditPlayerView: View {
                     .onDelete(perform: self.specialAbilitiesRowRemove)
                     
                     Button(action: {
-                        self.specialAbilities.append(Player.SpecialAbility(name: "", color: .blue))
+                        self.specialAbilities.append(SpecialAbility(name: "", color: .blue))
                     }, label: { Text("特殊能力を追加") })
                 })
             }
@@ -106,7 +106,7 @@ struct EditPlayerView: View {
 }
 
 struct EditSpecialAbilityView: View {
-    @Binding var specialAbility: Player.SpecialAbility
+    @Binding var specialAbility: SpecialAbility
     
     var body: some View {
         List {
@@ -116,10 +116,10 @@ struct EditSpecialAbilityView: View {
             Section("カラー", content: {
                 Picker("", selection: self.$specialAbility.color) {
                     ForEach([
-                        Player.SpecialAbility.Color.blue,
-                        Player.SpecialAbility.Color.green,
-                        Player.SpecialAbility.Color.yellow,
-                        Player.SpecialAbility.Color.red
+                        SpecialAbility.Color.blue,
+                        SpecialAbility.Color.green,
+                        SpecialAbility.Color.yellow,
+                        SpecialAbility.Color.red
                     ], id: \.self) { (color) in
                         //rawValueの値をPickerの項目に表示
                         Text(color.rawValue).tag(color)
@@ -132,7 +132,7 @@ struct EditSpecialAbilityView: View {
 }
 
 struct EditAbilityView: View {
-    @Binding var ability: Player.Ability
+    @Binding var ability: Ability
     
     var body: some View {
         List {

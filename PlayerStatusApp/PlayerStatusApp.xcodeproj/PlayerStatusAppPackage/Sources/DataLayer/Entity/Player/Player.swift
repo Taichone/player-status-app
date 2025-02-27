@@ -14,10 +14,10 @@ public class Player: Identifiable {
     
     // 基本情報
     public var name: String
-    public var abilities: [Player.Ability] // 基本能力
-    public var specialAbilities: [Player.SpecialAbility] // 特殊能力
+    public var abilities: [Ability] // 基本能力
+    public var specialAbilities: [SpecialAbility] // 特殊能力
     
-    public init(name: String, abilities: [Player.Ability], specialAbilities: [Player.SpecialAbility]) {
+    public init(name: String, abilities: [Ability], specialAbilities: [SpecialAbility]) {
         self.name = name
         self.abilities = abilities
         self.specialAbilities = specialAbilities

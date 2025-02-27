@@ -61,9 +61,9 @@ struct PreviewPlayerView: View {
 struct PreviewPlayerViewWrapper: View {
     var body: some View {
         let player = Player(name: "名前", abilities: [
-            Player.Ability(name: "開発・設計", score: 92)
+            Ability(name: "開発・設計", score: 92)
         ], specialAbilities: [
-            Player.SpecialAbility(name: "iOSアプリ開発", color: .blue)
+            SpecialAbility(name: "iOSアプリ開発", color: .blue)
         ])
         
         PreviewPlayerView(player: player)
