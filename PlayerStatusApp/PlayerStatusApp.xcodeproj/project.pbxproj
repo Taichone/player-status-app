@@ -39,6 +39,7 @@
 		523F89802B4FA1D900DC89C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		523F89862B4FA1D900DC89C5 /* PlayerStatusAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayerStatusAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		523F89902B4FA1D900DC89C5 /* PlayerStatusAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayerStatusAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52728CB92D706ECC00C2B050 /* PlayerStatusAppPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerStatusAppPackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 				523F89782B4FA1D800DC89C5 /* PlayerStatusApp */,
 				52728CAD2D70604D00C2B050 /* Frameworks */,
 				523F89772B4FA1D800DC89C5 /* Products */,
+				52728CB92D706ECC00C2B050 /* PlayerStatusAppPackage */,
 			);
 			sourceTree = "<group>";
 		};

@@ -4,7 +4,4 @@
    <FileRef
       location = "container:PlayerStatusApp/PlayerStatusApp.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:PlayerStatusAppPackage">
-   </FileRef>
 </Workspace>

@@ -5,20 +5,47 @@ import PackageDescription
 
 let package = Package(
     name: "PlayerStatusAppPackage",
+    platforms: [
+        .iOS(.v18),
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "PlayerStatusAppPackage",
-            targets: ["PlayerStatusAppPackage"]),
+            name: "DataLayer",
+            targets: ["DataLayer"]
+        ),
+        .library(
+            name: "Domain",
+            targets: ["Domain"]
+        ),
+        .library(
+            name: "Presentation",
+            targets: ["Presentation"]
+        ),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "PlayerStatusAppPackage"),
+            name: "DataLayer",
+            dependencies: []
+        ),
+        .target(
+            name: "Domain",
+            dependencies: [
+                "DataLayer",
+            ]
+        ),
         .testTarget(
-            name: "PlayerStatusAppPackageTests",
-            dependencies: ["PlayerStatusAppPackage"]
+            name: "DomainTests",
+            dependencies: [
+                "DataLayer",
+                "Domain",
+            ]
+        ),
+        .target(
+            name: "Presentation",
+            dependencies: [
+                "DataLayer",
+                "Domain"
+            ]
         ),
     ]
 )
