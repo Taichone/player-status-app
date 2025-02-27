@@ -38,7 +38,7 @@ struct PlayerListView: View {
                     Text("右上のボタンから選手を作成しましょう")
                 }
             }
-        } // NavigationStack
+        }
     }
     
     private func playerRowRemove(offsets: IndexSet) {
