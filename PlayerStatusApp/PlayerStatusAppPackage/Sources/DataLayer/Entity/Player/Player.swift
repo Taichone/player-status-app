@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-public class NewPlayer: Identifiable {
+public class Player: Identifiable {
     public var id = UUID().uuidString
     public var name: String
     public var backgroundColors: [BackgroundColor]
