@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import SwiftData
 import DataLayer
 
 public struct PlayerListView: View {
     @State private var players: [Player]
+    @State private var draggedItem: Player?
     
     private let columns = [
         GridItem(.flexible()),
@@ -26,15 +26,58 @@ public struct PlayerListView: View {
     public var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(players) { player in
+                ForEach(Array(players.enumerated()), id: \.element.id) { index, player in
                     PlayerCell(player: player)
                         .frame(height: 60)
                         .shadow(radius: 4)
+                        .opacity(draggedItem?.id == player.id ? 0.5 : 1.0)
+                        .onDrag {
+                            self.draggedItem = player
+                            return NSItemProvider(object: "\(index)" as NSString)
+                        }
+                        .onDrop(of: [.text], delegate: DropViewDelegate(
+                            destinationIndex: index,
+                            players: $players,
+                            draggedItem: $draggedItem)
+                        )
                 }
             }
             .padding()
         }
         .navigationTitle("選手一覧")
+    }
+}
+
+struct DropViewDelegate: DropDelegate {
+    let destinationIndex: Int
+    @Binding var players: [Player]
+    @Binding var draggedItem: Player?
+    
+    func performDrop(info: DropInfo) -> Bool {
+        draggedItem = nil
+        return true
+    }
+    
+    func dropEntered(info: DropInfo) {
+        guard let draggedItem = self.draggedItem,
+              let sourceIndex = players.firstIndex(where: { $0.id == draggedItem.id }) else {
+            return
+        }
+        
+        // 同じ位置にドロップする場合は何もしない
+        if sourceIndex == destinationIndex {
+            return
+        }
+        
+        // 配列内の要素を移動
+        withAnimation(.default) {
+            let player = players.remove(at: sourceIndex)
+            players.insert(player, at: sourceIndex > destinationIndex ? destinationIndex : destinationIndex - 1)
+        }
+    }
+    
+    func dropUpdated(info: DropInfo) -> DropProposal? {
+        return DropProposal(operation: .move)
     }
 }
 
