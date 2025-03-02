@@ -8,12 +8,14 @@
 import SwiftUI
 import Presentation
 import OldPresentation
+import Presentation
 
 @main
 struct PlayerStatusAppApp: App {
     var body: some Scene {
         WindowGroup {
-            OldPlayerListView()
+            RootView()
+//            OldPlayerListView()
         }
     }
 }

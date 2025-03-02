@@ -10,8 +10,8 @@
 		523F897A2B4FA1D800DC89C5 /* PlayerStatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89792B4FA1D800DC89C5 /* PlayerStatusApp.swift */; };
 		523F897E2B4FA1D900DC89C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523F897D2B4FA1D900DC89C5 /* Assets.xcassets */; };
 		523F89812B4FA1D900DC89C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523F89802B4FA1D900DC89C5 /* Preview Assets.xcassets */; };
-		5278D13C2D742D1600A16CAA /* OldDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 5278D13B2D742D1600A16CAA /* OldDataLayer */; };
 		5278D13E2D742D1600A16CAA /* OldPresentation in Frameworks */ = {isa = PBXBuildFile; productRef = 5278D13D2D742D1600A16CAA /* OldPresentation */; };
+		5278D1402D742D7D00A16CAA /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 5278D13F2D742D7D00A16CAA /* Presentation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5278D13E2D742D1600A16CAA /* OldPresentation in Frameworks */,
-				5278D13C2D742D1600A16CAA /* OldDataLayer in Frameworks */,
+				5278D1402D742D7D00A16CAA /* Presentation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,13 +362,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5278D13B2D742D1600A16CAA /* OldDataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = OldDataLayer;
-		};
 		5278D13D2D742D1600A16CAA /* OldPresentation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OldPresentation;
+		};
+		5278D13F2D742D7D00A16CAA /* Presentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Presentation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
