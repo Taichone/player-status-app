@@ -65,8 +65,45 @@ public struct Trajectory: AbilityListItem {
     }
 }
 
+// 守備力
+public struct DefensiveAbilities: AbilityListItem {
+    public var name: String
+    public var abilities: [BasicAbility]
+}
+
 // 球速
 public struct FastestPitch: AbilityListItem {
     public var name: String
     public var speed: Int
+}
+
+// 球種
+public struct PitchTypes: AbilityListItem {
+    public var name: String
+    
+    public var top1: StraightType?
+    public var top2: StraightType?
+    public var right1: BreakingBallType?
+    public var right2: BreakingBallType?
+    public var bottomRight1: BreakingBallType?
+    public var bottomRight2: BreakingBallType?
+    public var bottom1: BreakingBallType?
+    public var bottom2: BreakingBallType?
+    public var bottomLeft1: BreakingBallType?
+    public var bottomLeft2: BreakingBallType?
+    public var left1: BreakingBallType?
+    public var left2: BreakingBallType?
+    
+    public struct StraightType: Codable, Sendable {
+        public var name: String
+    }
+    
+    public struct BreakingBallType: Codable, Sendable {
+        public var name: String
+        public var amount: Amount
+        
+        public enum Amount: Codable, Sendable {
+            case one, two, three, four, five, six, seven
+        }
+    }
 }
