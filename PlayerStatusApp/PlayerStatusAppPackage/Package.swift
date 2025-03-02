@@ -26,10 +26,6 @@ let package = Package(
             targets: ["OldDataLayer"]
         ),
         .library(
-            name: "OldDomain",
-            targets: ["OldDomain"]
-        ),
-        .library(
             name: "OldPresentation",
             targets: ["OldPresentation"]
         ),
@@ -64,16 +60,9 @@ let package = Package(
             dependencies: []
         ),
         .target(
-            name: "OldDomain",
-            dependencies: [
-                "OldDataLayer",
-            ]
-        ),
-        .target(
             name: "OldPresentation",
             dependencies: [
-                "OldDataLayer",
-                "OldDomain"
+                "OldDataLayer"
             ]
         ),
     ]
