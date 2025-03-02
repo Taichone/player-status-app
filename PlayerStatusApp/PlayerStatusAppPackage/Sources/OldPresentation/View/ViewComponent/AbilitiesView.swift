@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import DataLayer
+import OldDataLayer
 
 struct AbilitiesView: View {
     let abilities: [Ability]

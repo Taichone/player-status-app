@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import DataLayer
+import OldDataLayer
 
 struct EditPlayerView: View {
     private struct ModalStatus {

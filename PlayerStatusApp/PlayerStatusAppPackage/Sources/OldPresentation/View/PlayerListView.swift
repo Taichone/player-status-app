@@ -7,7 +7,16 @@
 
 import SwiftUI
 import SwiftData
-import DataLayer
+import OldDataLayer
+
+public struct OldPlayerListView: View {
+    public init() {}
+    
+    public var body: some View {
+        PlayerListView()
+            .modelContainer(for: Player.self)
+    }
+}
 
 public struct PlayerListView: View {
     @Environment(\.modelContext) private var context
