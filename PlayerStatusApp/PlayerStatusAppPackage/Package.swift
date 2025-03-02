@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "PlayerStatusAppPackage",
     platforms: [
-        .iOS(.v18),
+        .iOS(.v18)
     ],
     products: [
         .library(
@@ -38,7 +38,7 @@ let package = Package(
         .target(
             name: "Domain",
             dependencies: [
-                "DataLayer",
+                "DataLayer"
             ]
         ),
         .testTarget(
@@ -52,7 +52,7 @@ let package = Package(
             name: "Presentation",
             dependencies: [
                 "DataLayer",
-                "Domain"
+                "Domain",
             ]
         ),
         .target(

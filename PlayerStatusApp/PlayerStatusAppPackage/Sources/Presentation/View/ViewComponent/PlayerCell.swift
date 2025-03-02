@@ -5,12 +5,12 @@
 //  Created by Taichi on 2024/01/12.
 //
 
-import SwiftUI
 import DataLayer
+import SwiftUI
 
 public struct PlayerCell: View {
     let player: Player
-    
+
     public var body: some View {
         HStack(spacing: 0) {
             Rectangle()
@@ -27,7 +27,7 @@ public struct PlayerCell: View {
         }
         .cornerRadius(10)
     }
-    
+
     private func backgroundStyle() -> LinearGradient {
         var colors: [Color] = []
         for backgroundColor in player.backgroundColors {
@@ -44,45 +44,52 @@ public struct PlayerCell: View {
                 colors.append(.pink)
             }
         }
-        
+
         if let firstColor = colors.first,
-           let lastColor = colors.last {
+            let lastColor = colors.last
+        {
             colors.insert(firstColor, at: 0)
             colors.append(lastColor)
         }
-        
-        return LinearGradient(gradient: Gradient(colors: colors), startPoint: .leading, endPoint: .trailing)
+
+        return LinearGradient(
+            gradient: Gradient(colors: colors), startPoint: .leading,
+            endPoint: .trailing
+        )
     }
 }
 
 #Preview {
     HStack {
-        PlayerCell(player: .init(
-            name: "近本",
-            backgroundColors: [.blue, .pink],
-            basicInfoList: [],
-            fieldersBasicAbilities: [],
-            fieldersSpecialAbilities: [],
-            pitchersBasicAbilities: [],
-            pitchersSpecialAbilities: [])
+        PlayerCell(
+            player: .init(
+                name: "近本",
+                backgroundColors: [.blue, .pink],
+                basicInfoList: [],
+                fieldersBasicAbilities: [],
+                fieldersSpecialAbilities: [],
+                pitchersBasicAbilities: [],
+                pitchersSpecialAbilities: [])
         )
-        PlayerCell(player: .init(
-            name: "名前がすごく長い人",
-            backgroundColors: [.blue, .pink],
-            basicInfoList: [],
-            fieldersBasicAbilities: [],
-            fieldersSpecialAbilities: [],
-            pitchersBasicAbilities: [],
-            pitchersSpecialAbilities: [])
+        PlayerCell(
+            player: .init(
+                name: "名前がすごく長い人",
+                backgroundColors: [.blue, .pink],
+                basicInfoList: [],
+                fieldersBasicAbilities: [],
+                fieldersSpecialAbilities: [],
+                pitchersBasicAbilities: [],
+                pitchersSpecialAbilities: [])
         )
-        PlayerCell(player: .init(
-            name: "鳥谷",
-            backgroundColors: [.blue, .pink],
-            basicInfoList: [],
-            fieldersBasicAbilities: [],
-            fieldersSpecialAbilities: [],
-            pitchersBasicAbilities: [],
-            pitchersSpecialAbilities: [])
+        PlayerCell(
+            player: .init(
+                name: "鳥谷",
+                backgroundColors: [.blue, .pink],
+                basicInfoList: [],
+                fieldersBasicAbilities: [],
+                fieldersSpecialAbilities: [],
+                pitchersBasicAbilities: [],
+                pitchersSpecialAbilities: [])
         )
     }
 }

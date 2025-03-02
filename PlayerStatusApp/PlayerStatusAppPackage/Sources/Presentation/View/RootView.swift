@@ -5,12 +5,12 @@
 //  Created by Taichi on 2025/03/02.
 //
 
-import SwiftUI
 import DataLayer
+import SwiftUI
 
 public struct RootView: View {
     public init() {}
-    
+
     public var body: some View {
         PlayerListView(players: [
             Player.make(name: "一宮", backgroundColors: [.yellow]),
