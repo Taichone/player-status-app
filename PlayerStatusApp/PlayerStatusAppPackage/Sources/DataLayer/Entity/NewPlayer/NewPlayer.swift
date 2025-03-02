@@ -11,21 +11,32 @@ import SwiftData
 @Model
 public class NewPlayer: Identifiable {
     public var id = UUID().uuidString
+    public var name: String
     
     // 基本情報
-    public var name: String
-    public var abilities: [NewBasicAbility] // 基本能力
-    public var specialAbilities: [NewSpecialAbility] // 特殊能力
+    public var basicInfoList: [BasicInfo]
     
-    public init(name: String, abilities: [NewBasicAbility], specialAbilities: [NewSpecialAbility]) {
+    // 能力
+    public var fieldersBasicAbilities: [BasicAbility] // 野手能力
+    public var fieldersSpecialAbilities: [NewSpecialAbility] // 野手特殊能力
+    
+    public var pitchersBasicAbilities: [BasicAbility] // 投手能力
+    public var pitchersSpecialAbilities: [NewSpecialAbility] // 投手能力
+
+    
+    public init(
+        name: String,
+        basicInfoList: [BasicInfo],
+        fieldersBasicAbilities: [BasicAbility],
+        fieldersSpecialAbilities: [NewSpecialAbility],
+        pitchersBasicAbilities: [BasicAbility],
+        pitchersSpecialAbilities: [NewSpecialAbility]
+    ) {
         self.name = name
-        self.abilities = abilities
-        self.specialAbilities = specialAbilities
-    }
-    
-    public init() {
-        self.name = ""
-        self.abilities = []
-        self.specialAbilities = []
+        self.basicInfoList = basicInfoList
+        self.fieldersBasicAbilities = fieldersBasicAbilities
+        self.fieldersSpecialAbilities = fieldersSpecialAbilities
+        self.pitchersBasicAbilities = pitchersBasicAbilities
+        self.pitchersSpecialAbilities = pitchersSpecialAbilities
     }
 }

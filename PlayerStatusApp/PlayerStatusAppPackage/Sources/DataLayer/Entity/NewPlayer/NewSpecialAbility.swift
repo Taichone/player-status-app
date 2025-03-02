@@ -11,19 +11,28 @@ public struct NewSpecialAbility: Identifiable, Codable {
     public var id = UUID().uuidString
     public var name: String
     public var color: Self.Color
+    public var rank: Rank
     
-    public init(name: String, color: Self.Color) {
+    public init(
+        name: String = "",
+        color: Color = .skyBlue,
+        rank: Self.Rank = .none
+    ) {
         self.name = name
         self.color = color
+        self.rank = rank
     }
     
     public enum Color: String, CaseIterable, Codable, Sendable {
+        case skyBlue
         case blue
-        case green
-        case yellow
+        case blueAndRed
         case red
-        case emptyColor
-        
-        public static let defaultColor = Self.blue
+        case yellow
+        case green
+    }
+    
+    public enum Rank: String, CaseIterable, Codable, Sendable {
+        case s, a, b, c, d, e, f, g, none
     }
 }
