@@ -105,11 +105,12 @@ public struct PlayerListView: View {
 
 extension Player: Transferable {
     public static var transferRepresentation: some TransferRepresentation {
-        CodableRepresentation(for: Player.self, contentType: .data)
+        ProxyRepresentation(exporting: { player in
+            // Playerオブジェクトを識別するためのIDを返す
+            return player.id
+        })
     }
 }
-
-
 
 #Preview {
     PlayerListView(players: [

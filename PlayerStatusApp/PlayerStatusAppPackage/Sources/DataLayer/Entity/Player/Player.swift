@@ -6,10 +6,8 @@
 //
 
 import Foundation
-import SwiftData
 
-@Model
-public class Player: Codable, Identifiable {
+public struct Player: Codable, Identifiable {
     public var id = UUID().uuidString
     public var name: String
     public var backgroundColors: [BackgroundColor]
