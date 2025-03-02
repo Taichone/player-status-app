@@ -7,14 +7,15 @@
 
 import SwiftUI
 import Presentation
-import DataLayer
+import OldPresentation
+import Presentation
 
 @main
 struct PlayerStatusAppApp: App {
     var body: some Scene {
         WindowGroup {
-            PlayerListView()
-                .modelContainer(for: Player.self)
+            RootView()
+//            OldPlayerListView()
         }
     }
 }

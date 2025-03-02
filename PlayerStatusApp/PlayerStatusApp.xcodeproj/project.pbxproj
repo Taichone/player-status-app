@@ -10,9 +10,8 @@
 		523F897A2B4FA1D800DC89C5 /* PlayerStatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F89792B4FA1D800DC89C5 /* PlayerStatusApp.swift */; };
 		523F897E2B4FA1D900DC89C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523F897D2B4FA1D900DC89C5 /* Assets.xcassets */; };
 		523F89812B4FA1D900DC89C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523F89802B4FA1D900DC89C5 /* Preview Assets.xcassets */; };
-		52728CAF2D70604D00C2B050 /* DataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 52728CAE2D70604D00C2B050 /* DataLayer */; };
-		52728CB12D70604D00C2B050 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 52728CB02D70604D00C2B050 /* Domain */; };
-		52728CB32D70604D00C2B050 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 52728CB22D70604D00C2B050 /* Presentation */; };
+		5278D13E2D742D1600A16CAA /* OldPresentation in Frameworks */ = {isa = PBXBuildFile; productRef = 5278D13D2D742D1600A16CAA /* OldPresentation */; };
+		5278D1402D742D7D00A16CAA /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 5278D13F2D742D7D00A16CAA /* Presentation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +27,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52728CB12D70604D00C2B050 /* Domain in Frameworks */,
-				52728CB32D70604D00C2B050 /* Presentation in Frameworks */,
-				52728CAF2D70604D00C2B050 /* DataLayer in Frameworks */,
+				5278D13E2D742D1600A16CAA /* OldPresentation in Frameworks */,
+				5278D1402D742D7D00A16CAA /* Presentation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,8 +289,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarHidden = NO;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -323,8 +322,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarHidden = NO;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -364,15 +364,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		52728CAE2D70604D00C2B050 /* DataLayer */ = {
+		5278D13D2D742D1600A16CAA /* OldPresentation */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DataLayer;
+			productName = OldPresentation;
 		};
-		52728CB02D70604D00C2B050 /* Domain */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Domain;
-		};
-		52728CB22D70604D00C2B050 /* Presentation */ = {
+		5278D13F2D742D7D00A16CAA /* Presentation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Presentation;
 		};
