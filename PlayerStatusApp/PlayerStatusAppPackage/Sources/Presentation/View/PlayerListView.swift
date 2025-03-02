@@ -30,59 +30,86 @@ public struct PlayerListView: View {
                     Array(viewModel.players.enumerated()),
                     id: \.element.id
                 ) { index, player in
-                    PlayerCell(player: player)
-                        .frame(height: 60)
-                        .shadow(radius: 4)
-                        .opacity(
-                            viewModel.draggedItem?.id == player.id ? 0.5 : 1.0
-                        )
-                        .onDrag {
-                            viewModel.startDragging(player: player)
-                            return NSItemProvider(
-                                object: "\(index)" as NSString
-                            )
-                        }
-                        .onDrop(
-                            of: [.text],
-                            delegate: DropViewDelegate(
-                                destinationIndex: index,
-                                viewModel: viewModel
-                            )
-                        )
+                    playerCellView(player: player)
                 }
             }
             .padding()
         }
         .navigationTitle("選手一覧")
     }
-}
-
-private struct DropViewDelegate: DropDelegate {
-    let destinationIndex: Int
-    let viewModel: PlayerListViewModel
-
-    func performDrop(info: DropInfo) -> Bool {
-        viewModel.dropCompleted()
-        return true
+    
+    @ViewBuilder
+    private func playerCellView(player: Player) -> some View {
+        PlayerCell(player: player)
+            .frame(height: 60)
+            .shadow(radius: 4)
+            .opacity(
+                viewModel.draggedItem?.id == player.id ? 0.5 : 1.0
+            )
+            .draggable(player) {
+                PlayerCell(player: player)
+                    .contentShape(
+                        .dragPreview,
+                        .rect(cornerRadius: PlayerCell.cornerRadius)
+                    )
+                    .onAppear {
+                        viewModel.draggedItem = player
+                    }
+            }
+            .dropDestination(for: Player.self) { _, _ in
+                true
+            } isTargeted: { isTargeted in
+                handleDropTarget(isTargeted: isTargeted, targetPlayer: player)
+            }
     }
-
-    func dropEntered(info: DropInfo) {
-        guard let draggedItem = viewModel.draggedItem else {
+    
+    private func handleDropTarget(isTargeted: Bool, targetPlayer: Player) {
+        // ターゲットがない時は何もしない
+        guard isTargeted else { return }
+        // ドラッグしてない時は何もしない
+        guard let draggingItem = viewModel.draggedItem else {
+            return
+        }
+        // ドラッグ中のIDとターゲットのIDが一緒であれば何もしない
+        guard draggingItem.id != targetPlayer.id else {
+            return
+        }
+        
+        performDragOperation(draggingItem: draggingItem, targetPlayer: targetPlayer)
+    }
+    
+    private func performDragOperation(draggingItem: Player, targetPlayer: Player) {
+        // ドラッグ中のインデックス
+        guard let draggingItemIndex = viewModel.players.firstIndex(
+            where: { $0.id == draggingItem.id })
+        else {
+            return
+        }
+        // ターゲットのインデックス
+        guard let targetedItemIndex = viewModel.players.firstIndex(
+            where: { $0.id == targetPlayer.id })
+        else {
             return
         }
 
-        withAnimation(.default) {
-            viewModel.updatePlayerOrder(
-                draggedItem: draggedItem,
-                destinationIndex: destinationIndex
+        withAnimation {
+            let sourceItem = viewModel.players.remove(
+                at: draggingItemIndex
+            )
+            viewModel.players.insert(
+                sourceItem, at: targetedItemIndex
             )
         }
     }
+}
 
-    func dropUpdated(info: DropInfo) -> DropProposal? {
-        return DropProposal(operation: .move)
+extension Player: Transferable {
+    public static var transferRepresentation: some TransferRepresentation {
+        CodableRepresentation(for: Player.self, contentType: .data)
     }
 }
+
+
 
 #Preview {
     PlayerListView(players: [

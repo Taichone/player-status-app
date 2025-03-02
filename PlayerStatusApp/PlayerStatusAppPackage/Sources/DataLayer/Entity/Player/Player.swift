@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-public class Player: Identifiable {
+public class Player: Codable, Identifiable {
     public var id = UUID().uuidString
     public var name: String
     public var backgroundColors: [BackgroundColor]
@@ -19,11 +19,11 @@ public class Player: Identifiable {
     
     // 野手能力
     public var fieldersBasicAbilities: [BasicAbility] // 野手能力
-    public var fieldersSpecialAbilities: [NewSpecialAbility] // 野手特殊能力
+    public var fieldersSpecialAbilities: [SpecialAbility] // 野手特殊能力
     
     // 投手能力
     public var pitchersBasicAbilities: [BasicAbility] // 投手能力
-    public var pitchersSpecialAbilities: [NewSpecialAbility] // 投手能力
+    public var pitchersSpecialAbilities: [SpecialAbility] // 投手能力
 
     
     public init(
@@ -31,9 +31,9 @@ public class Player: Identifiable {
         backgroundColors: [BackgroundColor],
         basicInfoList: [BasicInfo],
         fieldersBasicAbilities: [BasicAbility],
-        fieldersSpecialAbilities: [NewSpecialAbility],
+        fieldersSpecialAbilities: [SpecialAbility],
         pitchersBasicAbilities: [BasicAbility],
-        pitchersSpecialAbilities: [NewSpecialAbility]
+        pitchersSpecialAbilities: [SpecialAbility]
     ) {
         self.name = name
         self.backgroundColors = backgroundColors

@@ -9,6 +9,8 @@ import DataLayer
 import SwiftUI
 
 public struct PlayerCell: View {
+    public static let cornerRadius: CGFloat = 10
+    
     let player: Player
 
     public var body: some View {
@@ -25,7 +27,7 @@ public struct PlayerCell: View {
                         .padding(.horizontal, 8)
                 )
         }
-        .cornerRadius(10)
+        .cornerRadius(Self.cornerRadius)
     }
 
     private func backgroundStyle() -> LinearGradient {

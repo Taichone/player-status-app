@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct NewSpecialAbility: Identifiable, Codable {
+public struct SpecialAbility: Identifiable, Codable {
     public var id = UUID().uuidString
     public var name: String
     public var color: Self.Color
