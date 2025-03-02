@@ -14,6 +14,8 @@ public struct PlayerListView: View {
     
     private let columns = [
         GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
@@ -48,7 +50,9 @@ public struct PlayerListView: View {
         Player.make(name: "八田", backgroundColors: [.pink, .blue, .green]),
         Player.make(name: "九里", backgroundColors: [.pink]),
         Player.make(name: "十番町", backgroundColors: [.red]),
-        Player.make(name: "名前長杉野郎鯉津マジKAYO", backgroundColors: [.red]),
+        Player.make(name: "名前がとても長い人", backgroundColors: [.red]),
+        Player.make(name: "名前がめちゃくちゃ長い人", backgroundColors: [.red]),
+        Player.make(name: "アインシュタイン", backgroundColors: [.red]),
     ])
 }
 
